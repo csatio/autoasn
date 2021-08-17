@@ -1,8 +1,22 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
-})
+---
+title: "introducao"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introducao}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
+**Treinando o modelo - função run_train**
+
+```{r setup}
 library(autoasn)
 library(magrittr)
 
@@ -13,8 +27,12 @@ run_train(data_path='data',
           container_url= 'https://storageaccountcsapp9d08.blob.core.windows.net/',
           key= Sys.getenv('STORAGE_ACCOUNT_KEY'),
           seed = 1992)
+```
 
 
+**Obtendo o score - função get_score**
+
+```{r }
 get_existing_model(model_path= 'models/')
 
 
@@ -37,7 +55,8 @@ model = autoasn::update_model(model_path ,container_url,key)
 
 model = get_existing_model(model_path = "models/")
 
-score = autoasn::get_score(input_dict, model$model)
+score = get_score(input_dict, model$model)
 score
 
 
+```

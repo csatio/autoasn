@@ -108,6 +108,9 @@ run_train <- function(
   seed = 1992
 ) {
   # download and import input data
+
+  start_time=Sys.time()
+
   auto_df = read_input_data(data_path, data_file, container_url, key)
 
   # split train and test subsets
