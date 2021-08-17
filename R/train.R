@@ -198,6 +198,7 @@ autoasn_plot <- function(
 
   library(magrittr)
   library(ggplot2)
+  library(gridExtra)
 
   auto_df = read_input_data(data_path, data_file, container_url, key)
 
