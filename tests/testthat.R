@@ -1,3 +1,4 @@
+library(Matrix)
 library(testthat)
 library(autoasn)
 
