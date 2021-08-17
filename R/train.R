@@ -218,7 +218,6 @@ autoasn_plot <- function(
   p_ori<-ggplot(auto_df, aes(origin, mpg)) + geom_point()
 
   grid.arrange(p_mpg, p_cyl, p_dis, p_hor,p_wei,p_acc,p_yea,p_ori, ncol=3, nrow =3)
-
 }
 
 
