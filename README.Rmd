@@ -1,0 +1,43 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# autoasn
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Pacote R con funções de treinamento e score para a base auto.
+
+```{r}
+library(readxl)
+auto=read_excel("data/auto.xlsx")
+knitr::kable(head(auto))
+```
+
+
+## Installation
+
+
+``` r
+remotes::install_github("csatio/autoasn")
+```
+
+
+
+```{r example}
+library(autoasn)
+## basic example code
+```
+
