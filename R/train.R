@@ -61,7 +61,7 @@ read_input_data <- function(
 save_model <- function(
   model,
   model_path = 'models/',
-  model_name = glue::glue('auto_model_{strftime(start_time, "%Y-%m-%d--%H-%M-%S")}.rds'),
+  model_name ,
   container_url = 'https://storageaccountcsapp9d08.blob.core.windows.net/',
   key = Sys.getenv('STORAGE_ACCOUNT_KEY')
 ) {
@@ -170,6 +170,8 @@ run_train <- function(
 
   # fit for all dataset
   auto_fit <- auto_wf %>% parsnip::fit(auto_df)
+
+  model_name=glue::glue('auto_model_{strftime(start_time, "%Y-%m-%d--%H-%M-%S")}.rds')
 
   # save model
   save_model(auto_fit, model_path, model_name, container_url, key)
