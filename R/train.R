@@ -196,6 +196,9 @@ autoasn_plot <- function(
   key
 ) {
 
+  library(magrittr)
+  library(ggplot2)
+
   auto_df = read_input_data(data_path, data_file, container_url, key)
 
   p_mpg<-ggplot(auto_df, aes(x=mpg)) + geom_histogram()
