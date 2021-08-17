@@ -1,5 +1,5 @@
 ---
-title: "introducao"
+title: "Introdução"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{introducao}
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 **Treinando o modelo - função run_train**
 
-```{r setup}
+```{r setup , eval=F}
 library(autoasn)
 library(magrittr)
 
@@ -30,9 +30,9 @@ run_train(data_path='data',
 ```
 
 
-**Obtendo o score - função get_score**
+**Obtendo mpg - função get_score**
 
-```{r }
+```{r , eval=F}
 get_existing_model(model_path= 'models/')
 
 
@@ -60,3 +60,15 @@ score
 
 
 ```
+
+
+**Plotando os dados - função autoasn_plot**
+
+```{r , eval=F}
+autoasn_plot(data_path='data',
+             data_file= 'auto.xlsx',
+             container_url= 'https://storageaccountcsapp9d08.blob.core.windows.net/',
+             key= Sys.getenv('STORAGE_ACCOUNT_KEY'))
+```
+
+

@@ -1,4 +1,7 @@
 library(magrittr)
+library(ggplot2)
+library(gridExtra)
+
 teste <- "OK!"
 
 #' Read Input Data
@@ -171,5 +174,50 @@ run_train <- function(
   # save model
   save_model(auto_fit, model_path, model_name, container_url, key)
 }
+
+
+#' Plot Data
+#'
+#' Plot var x mpg
+#'
+#' @param data_path
+#' @param data_file
+#' @param container_url
+#' @param key
+#'
+#' @return
+#' @export
+#'
+#' @examples
+autoasn_plot <- function(
+  data_path,
+  data_file,
+  container_url,
+  key
+) {
+
+  auto_df = read_input_data(data_path, data_file, container_url, key)
+
+  p_mpg<-ggplot(auto_df, aes(x=mpg)) + geom_histogram()
+
+  p_cyl<-ggplot(auto_df, aes(x=cylinders, y=mpg)) + geom_point()
+
+  p_dis<-ggplot(auto_df, aes(displacement, mpg)) + geom_point()
+
+  p_hor<-ggplot(auto_df, aes(horsepower, mpg)) + geom_point()
+
+  p_wei<-ggplot(auto_df, aes(weight, mpg)) + geom_point()
+
+  p_acc<-ggplot(auto_df, aes(acceleration, mpg)) + geom_point()
+
+  p_yea<-ggplot(auto_df, aes(year, mpg)) + geom_point()
+
+  p_ori<-ggplot(auto_df, aes(origin, mpg)) + geom_point()
+
+  grid.arrange(p_mpg, p_cyl, p_dis, p_hor,p_wei,p_acc,p_yea,p_ori, ncol=3, nrow =3)
+
+}
+
+
 
 
